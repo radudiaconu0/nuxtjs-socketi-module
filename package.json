@@ -1,0 +1,57 @@
+{
+  "name": "@nuxtjs/socketi-js",
+  "version": "1.0.0-alpha.0",
+  "description": "Laravel Echo for Nuxt.js",
+  "keywords": [
+    "nuxt",
+    "module",
+    "nuxt-module",
+    "laravel",
+    "echo"
+  ],
+  "repository": "radudiaconu0/nuxtjs-socketi-module",
+  "license": "MIT",
+  "contributors": [
+    "Radu Mihai Diaconu <radu0071@gmail.com",
+    "Ricardo Gobbo de Souza <ricardogobbosouza@yahoo.com.br>"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/module.js",
+      "import": "./dist/module.es.js"
+    },
+    "./": "./"
+  },
+  "main": "./dist/module.js",
+  "types": "./dist/module.d.ts",
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "siroc build",
+    "lint": "eslint --ext .js,.ts,.vue .",
+    "release": "yarn build && yarn lint && yarn test && standard-version && git push --follow-tags && npm publish",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@soketi/soketi-js": "1.2.0",
+    "socket.io-client": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "latest",
+    "@nuxt/test-utils": "latest",
+    "@nuxt/types": "latest",
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@types/jest": "latest",
+    "@types/node": "latest",
+    "eslint": "latest",
+    "jest": "latest",
+    "nuxt": "latest",
+    "siroc": "latest",
+    "standard-version": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
