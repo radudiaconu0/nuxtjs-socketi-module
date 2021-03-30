@@ -12,13 +12,15 @@ export interface ModuleOptions {
   authModule?: boolean,
   connectOnLogin?: boolean,
   disconnectOnLogout?: boolean,
+  key: string,
 }
 
 const DEFAULTS: ModuleOptions = {
   broadcaster: 'null',
   authModule: false,
   connectOnLogin: true,
-  disconnectOnLogout: true
+  disconnectOnLogout: true,
+  key: 'null'
 }
 
 const nuxtModule: Module<ModuleOptions> = function (moduleOptions) {
