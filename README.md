@@ -1,4 +1,4 @@
-# @nuxtjs/socketi-js
+# nuxt-socketi-js
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -9,6 +9,9 @@
 > Socketi.js for Nuxt.js
 
 [📖 **Release Notes**](./CHANGELOG.md)
+
+
+
 This is a fork from @nuxtjs/laravel-echo to work with https://github.com/soketi/echo-server
 ## Requirements
 
@@ -26,22 +29,22 @@ yarn add socket.io-client # or npm install socket.io-client
 
 ## Setup
 
-1. Add `@nuxtjs/socketi-js` dependency to your project
+1. Add `nuxt-socketi-js` dependency to your project
 
 ```bash
-yarn add --dev @nuxtjs/socketi-js # or npm install --save-dev @nuxtjs/socketi-js
+yarn add --dev nuxt-socketi-js # or npm install --save-dev nuxt-socketi-js
 ```
 
-2. Add `@nuxtjs/socketi-js` to the `buildModules` section of `nuxt.config.js`
+2. Add `nuxt-socketi-js` to the `buildModules` section of `nuxt.config.js`
 
 ```js
 export default {
   buildModules: [
     // Simple usage
-    '@nuxtjs/socketi-js',
+    'nuxt-socketi-js',
 
     // With options
-    ['@nuxtjs/socketi-js', { /* module options */ }]
+    ['nuxt-socketi-js', { /* module options */ }]
   ]
 }
 ```
@@ -53,9 +56,9 @@ export default {
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/socketi-js'
+    'nuxt-socketi-js'
   ],
-  echo: {
+  socketi: {
     /* module options */
   }
 }
@@ -86,10 +89,10 @@ If you have plugins that need to access `$echo`, you can use `echo.plugins` opti
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/socketi-js'
+    'nuxt-socketi-js'
   ],
   echo: {
-     plugins: [ '~/plugins/echo.js' ]
+     plugins: [ '~/plugins/socketi.js' ]
   }
 }
 ```
@@ -97,9 +100,9 @@ export default {
 `plugins/echo.js`
 
 ```js
-export default function ({ $echo }) {
+export default function ({ $socketi }) {
   // Echo is available here
-  console.log($echo)
+  console.log($socketi)
 }
 ```
 
@@ -138,7 +141,7 @@ This module inject `$echo` to your project:
 <script>
 export default {
   mounted() {
-    this.$echo.channel('orders')
+    this.$socketi.channel('orders')
       .listen('OrderShipped', (e) => {
           console.log(e.order.name);
       });
@@ -154,11 +157,11 @@ export default {
 Copyright (c) Nuxt Community
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/socketi-js/latest.svg
-[npm-version-href]: https://npmjs.com/package/@nuxtjs/socketi-js
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-socketi-js/latest.svg
+[npm-version-href]: https://npmjs.com/package/nuxt-socketi-js
 
-[npm-downloads-src]: https://img.shields.io/npm/dt/@nuxtjs/socketi-js.svg
-[npm-downloads-href]: https://npmjs.com/package/@nuxtjs/socketi-js
+[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-socketi-js.svg
+[npm-downloads-href]: https://npmjs.com/package/nuxt-socketi-js
 
 [github-actions-ci-src]: https://github.com/nuxt-community/socketi-js/workflows/ci/badge.svg
 [github-actions-ci-href]: https://github.com/nuxt-community/socketi-js/actions?query=workflow%3Aci
@@ -166,5 +169,5 @@ Copyright (c) Nuxt Community
 [codecov-src]: https://img.shields.io/codecov/c/github/nuxt-community/socketi-js.svg
 [codecov-href]: https://codecov.io/gh/nuxt-community/socketi-js
 
-[license-src]: https://img.shields.io/npm/l/@nuxtjs/socketi-js.svg
-[license-href]: https://npmjs.com/package/@nuxtjs/socketi-js
+[license-src]: https://img.shields.io/npm/l/nuxt-socketi-js.svg
+[license-href]: https://npmjs.com/package/nuxt-socketi-js
